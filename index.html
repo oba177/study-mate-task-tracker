@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyMate | Study Task Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section id="authView" class="auth-card">
+      <div class="brand-mark">S</div>
+      <p class="eyebrow">STUDYMATE</p>
+      <h1 id="authHeading">Welcome back</h1>
+      <p class="muted" id="authDescription">Sign in to keep your study tasks organised.</p>
+
+      <form id="authForm" class="stack">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" required>
+        <button class="primary-button" id="authSubmit" type="submit">Sign in</button>
+      </form>
+      <p class="auth-switch" id="authSwitchText">New to StudyMate? <button id="switchAuth" class="text-button" type="button">Create an account</button></p>
+      <p id="authMessage" class="message" role="status"></p>
+      <p class="setup-hint">First time here? Create an account. You may need to confirm your email before signing in, depending on your Supabase settings.</p>
+    </section>
+
+    <section id="appView" class="app-view hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STUDYMATE</p>
+          <h1>My study tasks</h1>
+          <p class="muted">A clear plan makes studying feel lighter.</p>
+        </div>
+        <div class="account-area">
+          <span id="userEmail" class="user-email"></span>
+          <button id="signOutButton" class="secondary-button" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <section class="summary-row" aria-label="Task summary">
+        <article class="summary-card"><span class="summary-label">Total tasks</span><strong id="totalCount">0</strong></article>
+        <article class="summary-card"><span class="summary-label">Completed</span><strong id="completedCount">0</strong></article>
+        <article class="summary-card"><span class="summary-label">Still to do</span><strong id="remainingCount">0</strong></article>
+      </section>
+
+      <section class="content-grid">
+        <form id="taskForm" class="panel task-form">
+          <div>
+            <p class="eyebrow">PLAN AHEAD</p>
+            <h2>Add a task</h2>
+            <p class="muted">Record an assignment, reading, or study session.</p>
+          </div>
+          <label for="taskTitle">Task title <span class="required">*</span></label>
+          <input id="taskTitle" type="text" maxlength="120" placeholder="e.g. Complete algebra exercises" required>
+          <label for="taskSubject">Subject or course</label>
+          <input id="taskSubject" type="text" maxlength="80" placeholder="e.g. Mathematics">
+          <label for="taskPriority">Priority</label>
+          <select id="taskPriority">
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+          <button class="primary-button" type="submit">＋ Add task</button>
+          <p id="taskMessage" class="message" role="status"></p>
+        </form>
+
+        <section class="panel list-panel">
+          <div class="list-heading">
+            <div>
+              <p class="eyebrow">YOUR WORKSPACE</p>
+              <h2>Task list</h2>
+            </div>
+            <select id="taskFilter" aria-label="Filter tasks">
+              <option value="all">All tasks</option>
+              <option value="active">Incomplete</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div id="taskList" class="task-list" aria-live="polite">
+            <p class="empty-state">Loading your tasks…</p>
+          </div>
+        </section>
+      </section>
+      <footer>StudyMate · Your personal study organiser</footer>
+    </section>
+  </main>
+</body>
+</html>
