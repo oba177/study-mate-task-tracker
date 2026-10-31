@@ -1,4 +1,3 @@
-// 1. Replace these two values with your Supabase project details.
 const SUPABASE_URL = "https://qwafwarmitikatuppgsi.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_LFCg6N_bvpC-9mzlTP994A_pWyTw-74";
 
