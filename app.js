@@ -1,5 +1,5 @@
-const SUPABASE_URL = "https://qwafwarmitikatuppgsi.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_LFCg6N_bvpC-9mzlTP994A_pWyTw-74";
+const SUPABASE_URL = "https://xmlfsifwpwhfggnuhezm.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_q7YB0fJ3MApO1dULv6FWCA_3j5hSxsg";
 
 
 const authView = document.getElementById("authView");
